@@ -1,0 +1,23 @@
+{
+  "name": "provance-masterkey-gateway",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -p gateway/tsconfig.json"
+  },
+  "dependencies": {
+    "pg": "8.23.1",
+    "viem": "2.57.14",
+    "ajv": "8.20.0"
+  },
+  "devDependencies": {
+    "tsx": "4.23.12",
+    "typescript": "5.9.3",
+    "@types/node": "20.19.41",
+    "@types/pg": "8.23.1"
+  }
+}

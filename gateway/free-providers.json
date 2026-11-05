@@ -1,0 +1,437 @@
+[
+  {
+    "version": 2,
+    "serviceId": "crypto-symbols",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/crypto/list",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {
+      "limit": 3
+    },
+    "note": "Free symbol discovery. Price availability varies by symbol; symbols are normalized for workflow inputs."
+  },
+  {
+    "version": 2,
+    "serviceId": "crypto-price",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/crypto/price/{symbol}",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{1,15}-[A-Z0-9]{1,15}$",
+          "title": "Symbol pair",
+          "description": "Use a pair such as BTC-USD, rather than a bare ticker. Use Crypto Symbols to find available pairs."
+        }
+      },
+      "required": [
+        "symbol"
+      ],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-04T12:13:20.716Z",
+    "enabled": true,
+    "inputExample": {
+      "symbol": "BTC-USD"
+    },
+    "note": "Free delayed daily-close data. Not a realtime trading quote. Unsupported symbols fail without payment."
+  },
+  {
+    "version": 2,
+    "serviceId": "crypto-history",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/crypto/history/{symbol}",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{1,15}-[A-Z0-9]{1,15}$",
+          "title": "Symbol pair",
+          "description": "Use a pair such as BTC-USD, rather than a bare ticker. Use Crypto Symbols to find available pairs."
+        },
+        "days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        }
+      },
+      "required": [
+        "symbol"
+      ],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-04T12:13:20.716Z",
+    "enabled": true,
+    "inputExample": {
+      "symbol": "BTC-USD",
+      "days": 14
+    },
+    "note": "Free delayed daily OHLC history for the requested recent period."
+  },
+  {
+    "version": 2,
+    "serviceId": "fx-symbols",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/fx/list",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {
+      "limit": 3
+    },
+    "note": "Free symbol discovery. Price availability varies by symbol; symbols are normalized for workflow inputs."
+  },
+  {
+    "version": 2,
+    "serviceId": "fx-price",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/fx/price/{symbol}",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{1,15}-[A-Z0-9]{1,15}$",
+          "title": "Currency pair",
+          "description": "Use a pair such as EUR-USD. Use FX Symbols to find available pairs."
+        }
+      },
+      "required": [
+        "symbol"
+      ],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-04T12:13:20.716Z",
+    "enabled": true,
+    "inputExample": {
+      "symbol": "EUR-USD"
+    },
+    "note": "Free delayed daily-close data. Not a realtime trading quote. Unsupported symbols fail without payment."
+  },
+  {
+    "version": 2,
+    "serviceId": "commodity-symbols",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/commodity/list",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {
+      "limit": 3
+    },
+    "note": "Free symbol discovery. Price availability varies by symbol; symbols are normalized for workflow inputs."
+  },
+  {
+    "version": 2,
+    "serviceId": "commodity-price",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/commodity/price/{symbol}",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{1,15}-[A-Z0-9]{1,15}$",
+          "title": "Commodity pair",
+          "description": "Use a pair such as XAU-USD. Use Commodity Symbols to find available pairs."
+        }
+      },
+      "required": [
+        "symbol"
+      ],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-04T12:13:20.716Z",
+    "enabled": true,
+    "inputExample": {
+      "symbol": "XAU-USD"
+    },
+    "note": "Free delayed daily-close data. Not a realtime trading quote. Unsupported symbols fail without payment."
+  },
+  {
+    "version": 2,
+    "serviceId": "us-stock-symbols",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/usstock/list",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {
+      "limit": 3
+    },
+    "note": "Free US-market symbol discovery. This route does not provide worldwide equity coverage."
+  },
+  {
+    "version": 2,
+    "serviceId": "global-stock-symbols",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/stocks/us/list",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "q": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {
+      "limit": 3
+    },
+    "note": "Free US-market symbol discovery. This route does not provide worldwide equity coverage."
+  },
+  {
+    "version": 2,
+    "serviceId": "voices-free",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://blockrun.ai/api/v1/audio/voices",
+    "method": "GET",
+    "adapter": "blockrun-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {},
+    "note": "Free voice discovery only. Does not generate speech."
+  },
+  {
+    "version": 2,
+    "serviceId": "ai-output-risk-guardrail",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://brack-hive.tail4f568d.ts.net/output-risk",
+    "method": "POST",
+    "adapter": "guardrail-json-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-03T15:15:00.000Z",
+    "enabled": true,
+    "inputExample": {
+      "content": "The weather today is sunny with a high of 72 degrees."
+    },
+    "note": "Advisory pattern-based output screening. Its verdict does not control Provance permissions or spending."
+  },
+  {
+    "version": 2,
+    "serviceId": "exa",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "network": null,
+    "asset": null,
+    "scheme": "free",
+    "payTo": null,
+    "maxFeeUsd": "0",
+    "url": "https://mcp.exa.ai/mcp",
+    "method": "POST",
+    "adapter": "exa-mcp-search-v1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "description": "Describe the pages you want to find. For example: official Stellar developer documentation."
+        },
+        "numResults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "default": 2
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "fast",
+            "auto"
+          ],
+          "default": "fast"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "risk": "read",
+    "reviewedAt": "2026-11-04T12:13:20.716Z",
+    "enabled": true,
+    "inputExample": {
+      "query": "site:developers.stellar.org Stellar developer documentation",
+      "numResults": 2,
+      "type": "fast"
+    },
+    "note": "Official Exa free MCP search, subject to provider availability and rate limits. Defaults to 2 results. No automatic retry or paid fallback."
+  }
+]

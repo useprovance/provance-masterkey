@@ -1,0 +1,23 @@
+[
+  {
+    "serviceId": "exa",
+    "registryRevision": "b6aa0b1696a649a8644929ab1d1e9d641edf2904",
+    "url": "https://api.exa.ai/search",
+    "payTo": "0x6d6E695b09861467c7d462f5AAF31cF3540B9192",
+    "maxFeeUsd": "0.01",
+    "risk": "read",
+    "enabled": false,
+    "reviewedAt": "",
+    "ignoredExtensions": ["bazaar", "agentkit"],
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "numResults": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "type": { "type": "string", "enum": ["auto", "keyword", "neural"] }
+      },
+      "required": ["query"],
+      "additionalProperties": false
+    }
+  }
+]
