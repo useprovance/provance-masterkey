@@ -1,0 +1,18 @@
+{
+  "status": "unpaid_quote_verified",
+  "observedAt": "2026-11-02T23:00:16.346Z",
+  "serviceId": "exa",
+  "url": "https://api.exa.ai/search",
+  "inputHash": "16eaa6e14bd81b762e135fe42be1875622cacb8956ab8d049b1b81a44ab98135",
+  "network": "eip155:8453",
+  "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "payTo": "0x6d6E695b09861467c7d462f5AAF31cF3540B9192",
+  "amountUsd": "0.007000",
+  "maximumUsd": "0.01",
+  "maxTimeoutSeconds": 60,
+  "ignoredExtensions": [
+    "bazaar",
+    "agentkit"
+  ],
+  "paidSettlementVerified": false
+}

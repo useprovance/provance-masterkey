@@ -1,0 +1,22 @@
+name: Provance gateway checks
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: gateway/package-lock.json
+      - run: npm run gateway:install
+      - run: npm run gateway:test
+      - run: npm run gateway:build
+      - run: docker build -f gateway/Dockerfile -t provance-gateway:ci .

@@ -12,7 +12,12 @@
     "start": "next start",
     "lint": "eslint",
     "registry:build": "node scripts/registry/run.mjs",
-    "registry:verify-drift": "node scripts/registry/verify-drift.mjs"
+    "registry:verify-drift": "node scripts/registry/verify-drift.mjs",
+    "gateway:install": "npm ci --prefix gateway --ignore-scripts --no-audit --no-fund",
+    "gateway:dev": "node --env-file=.env.gateway gateway/node_modules/tsx/dist/cli.mjs watch gateway/main.ts",
+    "gateway:build": "gateway/node_modules/.bin/tsc -p gateway/tsconfig.json",
+    "gateway:start": "node dist-gateway/main.js",
+    "gateway:test": "gateway/node_modules/.bin/tsx --test gateway/tests/*.test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.101.0",

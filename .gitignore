@@ -98,3 +98,10 @@ data/registry/_*.json
 data/registry/orbis-sprint-endpoints.json
 data/registry/qa-checklist.json
 data/registry/qa-ledger.json
+
+# Provance private gateway credentials / compiled server
+.env.gateway
+dist-gateway/
+gateway/node_modules/
+!gateway/.env.example
+!gateway/.env.production.example
